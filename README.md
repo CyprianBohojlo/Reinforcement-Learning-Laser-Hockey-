@@ -22,8 +22,13 @@ pip install ruff
 pip install pre-commit
 ```
 
+## Laser Hockey game
+The Hockey environment is implemented using the Gymnasium API
+(formerly Open AI Gym, https://gymnasium.farama. org/, which features a custom environment developed by the
+Martius Lab. The environment simulates a two-player hockey game in which agents compete to score goals against
+each other. It presents numerous challenges, including continuous state spaces, complex dynamics, and the need
+for both defensive and offensive strategies.
 ## Algorithms
-
 This project implements the **Soft Actor-Critic (SAC)** algorithm to train an agent to play a laser hockey game. SAC is an off-policy reinforcement learning algorithm that optimizes for both reward maximization and entropy, encouraging exploration.
 
 The key components of the SAC implementation in this project include:
