@@ -61,7 +61,10 @@ The key components of the SAC implementation in this project include:
 
 ## Usage
 
-To train the SAC agent, run:
+To train the SAC agent, the user can run the following command:
 
 ```bash
-python training_sac_agent.py --mode normal --max_episodes 1000 --device cpu
+python training_sac_agent.py --mode weak_opponent --max_episodes 20000 --max_steps 500 \
+        --save_path ./models --checkpoint_mode none --device cuda
+
+
