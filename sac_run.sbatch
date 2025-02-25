@@ -1,10 +1,10 @@
 #!/bin/bash
 #SBATCH --job-name=sac_RL
 #SBATCH --cpus-per-task=4
-#SBATCH --partition=day
+#SBATCH --partition=week
 #SBATCH --mem-per-cpu=4G
 #SBATCH --gres=gpu:1
-#SBATCH --time=24:00:00
+#SBATCH --time=144:00:00
 #SBATCH --error=job.%J.err
 #SBATCH --output=job.%J.out
 #SBATCH --mail-type=ALL
@@ -31,15 +31,17 @@ cd $PROJECT_DIR
 
 # Execute within Singularity container
 singularity exec --nv /common/singularityImages/TCML-CUDA12_4_TF2_17_PT_2_4.simg bash -c "
-    pip install gymnasium torch==2.4.0 numpy==1.26.4 matplotlib --quiet  # Install dependencies
+    pip install gymnasium torch==2.4.0 numpy==1.26.4 matplotlib --quiet
     pip install git+https://github.com/martius-lab/hockey-env.git --quiet
     
-    # Execute the training script with the provided arguments
-    python training_sac_agent.py --mode weak_opponent --max_episodes 50000 --max_steps 1000 \
-        --save_path ./models  --checkpoint_mode none --device cuda  > score_logs.txt
+    # Execute the training script
+    python training_sac_agent.py --mode weak_opponent --max_episodes 20000 --max_steps 500 \
+        --save_path ./models --checkpoint_mode none --device cuda
 "
 
-# Copy results back to the submission directory
+# Copy results back to submission directory
 mkdir -p $SUBMIT_DIR/models
 cp -r $PROJECT_DIR/models/* $SUBMIT_DIR/models/ 2>/dev/null || true
-cp score_logs.txt $SUBMIT_DIR/ 2>/dev/null || true
+
+# Copy your new score_logs.txt back
+cp $PROJECT_DIR/score_logs.txt $SUBMIT_DIR/ 2>/dev/null || true
