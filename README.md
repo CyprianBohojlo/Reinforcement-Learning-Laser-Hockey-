@@ -34,10 +34,10 @@ This project implements the **Soft Actor-Critic (SAC)** algorithm to train an ag
 The key components of the SAC implementation in this project include:
 
 - **Environment Wrapper (`environment.py`)**  
-  A wrapper around the `hockey-env` environment that manages state observations, action constraints, and reward shaping.
+  A wrapper around the `hockey-env` environment that manages state observations, actions, and reward shaping.
 
 - **Neural Networks (`networks.py`)**  
-  - **Actor Network**: Learns a policy to output actions based on states.
+  - **Actor Network**: Learns a policy to output actions based on states and policy.
   - **Critic Networks**: Two critics are used to estimate Q-values and mitigate overestimation bias.
   - **Value Network**: Estimates the expected return from a given state.
 
@@ -48,15 +48,15 @@ The key components of the SAC implementation in this project include:
   Implements the Soft Actor-Critic agent, including:
   - Policy learning with reparameterization trick.
   - Twin Q-learning for stability.
-  - Adaptive entropy tuning to balance exploration and exploitation.
+  - Adaptive temperature alpha tuning to balance exploration and exploitation.
 
 - **Training Pipeline (`train.py`)**  
-  - Implements training loops, logging, evaluation, and model saving.
-  - Uses an **adaptive learning rate controller** to fine-tune learning dynamically.
+  - Implements training loops, evaluation, logs saving, and model saving.
+  - Uses an **adaptive learning rate controller** to auto-tune learning rate automatically.
 
-- **Training Execution (`training_sac_agent.py`)**  
+- **Training (`training_sac_agent.py`)**  
   - Provides command-line arguments for training and evaluation.
-  - Supports multiple training modes (normal, shooting, defense, opponent modes).
+  - Supports multiple training modes (normal, shooting, defense, different opponent modes).
   - Handles model saving, resuming training, and performance evaluation.
 
 ## Usage
