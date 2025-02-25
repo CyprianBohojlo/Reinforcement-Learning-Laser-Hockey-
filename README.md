@@ -24,7 +24,7 @@ pip install pre-commit
 
 ## Laser Hockey game
 The Hockey environment is implemented using the Gymnasium API
-(formerly Open AI Gym, https://gymnasium.farama. org/, which features a custom environment developed by the
+(formerly Open AI Gym, https://gymnasium.farama.org/, which features a custom environment developed by the
 Martius Lab. The environment simulates a two-player hockey game in which agents compete to score goals against
 each other. It presents numerous challenges, including continuous state spaces, complex dynamics, and the need
 for both defensive and offensive strategies.
