@@ -9,9 +9,7 @@ import os
 import torch
 
 def parse_arguments():
-    """
-    Parse command-line arguments for training or evaluation.
-    """
+    
     parser = ArgumentParser()
 
     # Training params wit h default options
