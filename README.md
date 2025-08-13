@@ -1,5 +1,5 @@
 # Laser Hockey Reinforcement Learning Project   
-The final project about the development of a Reinforcement Learning agent for a laser hockey game in the course Reinforcement Learning WiSe 24/25 at the University of Tübingen, Germany.
+The final project about the development of a Reinforcement Learning agent for a laser hockey game in the course Reinforcement Learning WiSe 24/25 at the University of Tübingen, Germany. In this project Soft Actor Critic (SAC) algorithm is implemented to train the agent to learn how to play the game. For more details please check out this [paper](RL report Cyprian Bohojlo.pdf).
 ## Install   
 The base environment can be installed using 
 ```
